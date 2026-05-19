@@ -47,4 +47,10 @@ public class ProductServiceImplementation implements ProductService{
         productRepository.save(updateProduct);
         return updateProduct;
     }
+
+    @Override
+    public void deleteProduct(String product, Integer productId) {
+        Product delProduct = productRepository.findById(productId).orElseThrow(()->new RuntimeException());
+        productRepository.delete(delProduct);
+    }
 }
