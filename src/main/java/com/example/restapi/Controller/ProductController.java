@@ -1,7 +1,9 @@
 package com.example.restapi.Controller;
 
 import com.example.restapi.Model.Product;
+import com.example.restapi.Model.ProductDetails;
 import com.example.restapi.Service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +14,12 @@ import java.util.List;
 
 
 @RestController
-
+@AllArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private ProductService productService;
+
 
     @PostMapping("/")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
